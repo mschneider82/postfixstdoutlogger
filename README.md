@@ -30,3 +30,5 @@ RUN curl -sfL https://raw.githubusercontent.com/mschneider82/postfixstdoutlogger
 
 CMD ["./usr/bin/postfixstdoutlogger", "--overwrite", "--socketfile", "/dev/log"]
 ```
+
+This will be obsolete once postfix 3.4.x is available in repos. There is an option to set `maillog_file=/dev/stdout`
