@@ -7,10 +7,9 @@
 This tool creates a unixsocket (e.g. `/dev/log`) and then runs `postfix start-fg`
 all logs are logged to stdout.
 
-Use this tool in a Dockerfile like this:
+Use this in a Dockerfile like this:
 
 ```
-
 FROM ubuntu:19.04
 
 MAINTAINER Matthias Schneider
@@ -29,7 +28,5 @@ RUN cp /etc/host.conf /etc/hosts /etc/nsswitch.conf /etc/resolv.conf /etc/servic
 
 RUN curl -sfL https://raw.githubusercontent.com/mschneider82/postfixstdoutlogger/master/godownloader.sh | sh
 
-# postfixstdoutlogger creates a unixsocket for logging and starts ["postfix", "start-fg"]
 CMD ["./usr/bin/postfixstdoutlogger", "--overwrite", "--socketfile", "/dev/log"]
-
 ```
