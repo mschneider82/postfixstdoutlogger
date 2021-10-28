@@ -1,11 +1,12 @@
 package main
 
 import (
-	"log"
 	"os"
 	"os/exec"
 
 	"github.com/alecthomas/kingpin"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	"gopkg.in/mcuadros/go-syslog.v2"
 )
 
@@ -14,8 +15,11 @@ var (
 	overwrite  = kingpin.Flag("overwrite", "set to overwrite a socket file if it exists").Bool()
 )
 
+const timeFormat = "2006-01-02T15:04:05.000-07:00"
+
 func main() {
 	kingpin.Parse()
+	zerolog.TimeFieldFormat = timeFormat
 
 	if *overwrite {
 		if _, err := os.Stat(*socketfile); err == nil {

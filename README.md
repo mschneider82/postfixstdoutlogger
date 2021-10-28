@@ -10,7 +10,7 @@ all logs are logged to stdout.
 Use this in a Dockerfile like this:
 
 ```
-FROM ubuntu:19.04
+FROM ubuntu:20.10
 
 MAINTAINER Matthias Schneider
 
